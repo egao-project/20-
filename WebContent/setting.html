@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="stylesheet.css">
+<script>
+            window.fbAsyncInit = function() {
+              FB.init({
+                appId      : '1480836852241182',
+                cookie     : true,  // enable cookies to allow the server to access
+                                    // the session
+                xfbml      : true,
+                version    : 'v2.4'
+              });
+            };
+            // ログイン状態を確認する
+            FB.getLoginStatus(function(response) {
+                if (response.status === 'connected') {
+                    // ログインしている、かつ、アプリを承認している
+                    var uid = response.authResponse.userID;
+                    var accessToken = response.authResponse.accessToken;
+                } else if (response.status === 'not_authorized') {
+                    // ログインしているが、アプリは承認していない
+                	location.href="http://tripwriter-show.main.jp/setting.html";
+                } else {
+                    // ログインしていない
+                	location.href="http://tripwriter-show.main.jp/setting.html";
+                }
+            });
+        };
+        
+        (function() {
+         var e = document.createElement('script');
+         e.type = 'text/javascript';
+         e.src = document.location.protocol + '//connect.facebook.net/ja_JP/all.js';
+         e.async = false;
+         document.getElementById('fb-root').appendChild(e);
+        }());
+    </script>
+<title>項目一覧</title>
+</head>
+<body>
+	<div class="header">
+		<div class="header-left">Take Easy</div>
+		<div class="header-right">
+			<ul>
+				<li class="selected"><a href = "input.html">項目追加</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="main">
+	    <h1>項目一覧</h1>
+		<div class="contents-bottom">
+        <table>
+          <tr>
+            <th>項目</th>
+            <th>累計時間</th>
+          </tr>
+          <tr>
+            <td>英語</td>
+            <td>00:00:00</td>
+          </tr>
+          <tr>
+            <td>Word Press</td>
+            <td>12:25:34</td>
+          </tr>
+          <tr>
+            <td>Java</td>
+            <td>08:28:23</td>
+          </tr>
+        </table>
+      </div>
+	</div>
+</body>
+</html>
